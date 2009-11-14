@@ -6,6 +6,24 @@ using System.Collections;
 
 namespace ETEnTranslator
 {
+    public struct Noun
+    {
+        public Chislo chislo;
+        public Rod rod;
+        public Padezh padezh;
+        public string osnova;
+        public string english;
+        public override string ToString()
+        {
+            return
+            "\r\nОснова: " + this.osnova +
+            "\r\nПеревод: " + this.english +
+            "\r\nРод: " + this.rod +
+            "\r\nПадеж: " + this.padezh +
+            "\r\nЧисло: " + this.chislo + "\r\n";
+        }
+    }
+
 	public enum ChastRechi
 	{
 		Neopredelennaya,
@@ -163,27 +181,30 @@ namespace ETEnTranslator
 		public StepenSravneniya stepenSravneniya;
 		public Sostoynie sostoynie; // Добавлено Ромой
 		public Lico lico;
-		public RuSlovo ruSlovo;
+		public EnSlovo enSlovo;
+
+        public object ExtraData;
+
 		public Slovo()
 		{
-			ruSlovo = new RuSlovo();
+			enSlovo = new EnSlovo();
 		}
 		public Slovo(string eSlovo)
 		{
 			this.eSlovo = eSlovo;
-			ruSlovo = new RuSlovo();
+			enSlovo = new EnSlovo();
 		}
 		public Slovo(string rSlovo,ChastRechi chastRechi)
 		{
 			this.rSlovo = rSlovo;
 			this.chastRechi = chastRechi;
-			ruSlovo = new RuSlovo();
+			enSlovo = new EnSlovo();
 		}
 		public Slovo(string eSlovo,ChastRechi chastRechi,bool b)
 		{
 			this.eSlovo = eSlovo;
 			this.chastRechi = chastRechi;
-			ruSlovo = new RuSlovo();
+			enSlovo = new EnSlovo();
 		}
 
         public string ToString()
@@ -206,15 +227,9 @@ namespace ETEnTranslator
         }
 	}
 	
-	public class RuSlovo
+	public class EnSlovo
 	{
-		public RuPadezh ruPadezh;
-		public RuRod ruRod;	
-		public RuChislo ruChislo;
-		public RuForma ruForma;
-		public RuVid ruVid;
-		public RuLico ruLico;
-		public RuPerehodnost ruPerehodnost;
+        public string slovo;
 	}
 	
 	public enum RuPadezh

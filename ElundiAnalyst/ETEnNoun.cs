@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Collections;
+using System.Data.SQLite;
 
 namespace ETEnTranslator
 {
@@ -23,31 +24,6 @@ namespace ETEnTranslator
 			
 			return analyzed;
 		}
-
-		protected void ShiftPadezh(ref Slovo slovo)
-		{
-			switch(slovo.padezh)
-			{
-				case Padezh.Vinitelnij:
-					slovo.ruSlovo.ruPadezh = RuPadezh.Vinitelniy;
-					break;
-				case Padezh.Prityazhatelnij:
-					slovo.ruSlovo.ruPadezh = RuPadezh.Roditelniy;
-					break;
-				case Padezh.Datelnij:
-					slovo.ruSlovo.ruPadezh = RuPadezh.Datelniy;
-					break;
-				case Padezh.Tvoritelnij:
-					slovo.ruSlovo.ruPadezh = RuPadezh.Tvoritelniy;
-					break;
-				case Padezh.Imenitelnij:
-					slovo.ruSlovo.ruPadezh = RuPadezh.Imenitelniy;
-					break;
-				default:
-					slovo.ruSlovo.ruPadezh = RuPadezh.Predlozhniy;
-					break;
-			}		
-		}
 		
 		protected void PreAnalyze(Predlozhenie pr,int place,ref Slovo slovo)
 		{
@@ -55,7 +31,45 @@ namespace ETEnTranslator
 			AnalyzeChislo(ref slovo);
 			AnalyzeRod(ref slovo);
 			FindOsnova(ref slovo);
+            GetTranslate(ref slovo);
+            SetExtraData(ref slovo);
 		}
+
+        private void GetTranslate(ref Slovo slovo)
+        {
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source=D:\Эльюнди 2008\RTETranslator\dict.sqlitedb;Version=3;");
+            connection.Open();
+            SQLiteCommand command = new SQLiteCommand(connection);
+            //command.CommandText = "SELECT n, rus FROM dict";
+            command.CommandText = "SELECT eng FROM dict WHERE el=@el";
+            command.Parameters.Add(new SQLiteParameter("el", slovo.eSlovo));
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                reader.Read();
+                if (!reader.IsDBNull(0))
+                {
+                    slovo.enSlovo.slovo = reader.GetString(0);
+                }
+                else
+                {
+                    slovo.enSlovo.slovo = "[Нет перевода]";
+                }
+            }
+            reader.Close();
+            connection.Close();
+        }
+
+        private void SetExtraData(ref Slovo slovo)
+        {
+            Noun noun = new Noun();
+            noun.chislo = slovo.chislo;
+            noun.padezh = slovo.padezh;
+            noun.rod = slovo.rod;
+            noun.osnova = slovo.eSlovo;
+            noun.english = slovo.enSlovo.slovo;
+            slovo.ExtraData = noun;
+        }
 
 		protected void AnalyzePadezh(Predlozhenie pr,int place,ref Slovo slovo)
 		{
@@ -134,18 +148,16 @@ namespace ETEnTranslator
 			{
 				case 'Q':
 					slovo.chislo = Chislo.Edinstvennoe;
-					slovo.ruSlovo.ruChislo = RuChislo.Edinstvennoe;
-					if(slovo.eSlovo.IndexOf("QBA")!=-1)
+                    if (slovo.eSlovo.IndexOf("QBA") + 3 == slovo.eSlovo.Length - 1)
 						slovo.chislo = Chislo.Odinochnoe;
-					if(slovo.eSlovo.IndexOf("WBA")!=-1)
+                    if (slovo.eSlovo.IndexOf("WBA") + 3 == slovo.eSlovo.Length - 1)
 						slovo.chislo = Chislo.Malochislennoe;
 					break;
 				case 'W':
 					slovo.chislo = Chislo.Mnozhestvennoe;
-					slovo.ruSlovo.ruChislo = RuChislo.Mnozhestvennoe;
-					if(slovo.eSlovo.IndexOf("QBA")!=-1)
+                    if (slovo.eSlovo.IndexOf("QBA") + 3 == slovo.eSlovo.Length - 1)
 						slovo.chislo = Chislo.Neopredelennoe;
-					if(slovo.eSlovo.IndexOf("WBA")!=-1)
+                    if (slovo.eSlovo.IndexOf("WBA") + 3 == slovo.eSlovo.Length - 1)
 						slovo.chislo = Chislo.Mnogoobraznoe;
 					break;
 				default:
@@ -157,25 +169,21 @@ namespace ETEnTranslator
 		protected void AnalyzeRod(ref Slovo slovo)
 		{
 			slovo.rod = Rod.Obshij;
-			if(slovo.eSlovo.IndexOf("]") != -1)
+			if (slovo.eSlovo.IndexOf("]") + 1 == slovo.eSlovo.Length - 1)
 			{
 				slovo.rod = Rod.Muzhskoj;
-				slovo.ruSlovo.ruRod = RuRod.Muzhskoj;
 			}
-			if(slovo.eSlovo.IndexOf("[") != -1)
+            if (slovo.eSlovo.IndexOf("[") + 1 == slovo.eSlovo.Length - 1)
 			{
 				slovo.rod = Rod.Zhenskij;
-				slovo.ruSlovo.ruRod = RuRod.Zhenskij;
 			}
-			if(slovo.eSlovo.IndexOf("EVA") != -1)
+            if (slovo.eSlovo.IndexOf("EVA") + 3 == slovo.eSlovo.Length - 1)
 			{
 				slovo.rod = Rod.Muzhskoj;
-				slovo.ruSlovo.ruRod = RuRod.Muzhskoj;
 			}
-			if(slovo.eSlovo.IndexOf("RVA") != -1)
+            if (slovo.eSlovo.IndexOf("RVA") + 3 == slovo.eSlovo.Length - 1)
 			{
 				slovo.rod = Rod.Zhenskij;
-				slovo.ruSlovo.ruRod = RuRod.Zhenskij;
 			}
 		}
 		
@@ -195,6 +203,7 @@ namespace ETEnTranslator
 			{
 				osnova = osnova.Remove(osnova.Length-1,1);
 			}
+            slovo.eSlovo = osnova;
 		}
 	}
 }

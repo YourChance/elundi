@@ -29,7 +29,10 @@ namespace ElundiAnalyst
                 for (int j = 0; j < curPred.Count; j++)
                 {
                     Slovo curSlovo = curPred[j];
-                    analysedText.AppendText(curSlovo.ToString());
+                    if (curSlovo.chastRechi == ChastRechi.Suschestvitelnoe)
+                    {
+                        analysedText.AppendText(((Noun)curSlovo.ExtraData).ToString());
+                    }
                 }
             }
         }
