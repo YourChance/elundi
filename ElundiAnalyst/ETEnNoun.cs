@@ -37,7 +37,7 @@ namespace ETEnTranslator
 
         private void GetTranslate(ref Slovo slovo)
         {
-            SQLiteConnection connection = new SQLiteConnection(@"Data Source=D:\Эльюнди 2008\RTETranslator\dict.sqlitedb;Version=3;");
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source=dict.sqlitedb;Version=3;");
             connection.Open();
             SQLiteCommand command = new SQLiteCommand(connection);
             //command.CommandText = "SELECT n, rus FROM dict";

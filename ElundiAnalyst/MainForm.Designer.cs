@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.elundiText = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.AnalysProgress = new System.Windows.Forms.ProgressBar();
             this.panel2 = new System.Windows.Forms.Panel();
             this.StartAnalysisBtn = new System.Windows.Forms.Button();
-            this.elundiText = new System.Windows.Forms.RichTextBox();
-            this.analysedText = new System.Windows.Forms.RichTextBox();
+            this.wordView = new System.Windows.Forms.TreeView();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -56,10 +56,20 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.analysedText);
+            this.splitContainer1.Panel2.Controls.Add(this.wordView);
             this.splitContainer1.Size = new System.Drawing.Size(607, 395);
             this.splitContainer1.SplitterDistance = 202;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // elundiText
+            // 
+            this.elundiText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elundiText.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.elundiText.Location = new System.Drawing.Point(0, 0);
+            this.elundiText.Name = "elundiText";
+            this.elundiText.Size = new System.Drawing.Size(607, 170);
+            this.elundiText.TabIndex = 0;
+            this.elundiText.Text = " Q-RRQ FQV Q-IBS FQV A-ZJ FQV E-MKYM Q-ABO-E S-I FQV Q-MLYM.";
             // 
             // panel1
             // 
@@ -98,26 +108,13 @@
             this.StartAnalysisBtn.UseVisualStyleBackColor = true;
             this.StartAnalysisBtn.Click += new System.EventHandler(this.StartAnalysisBtn_Click);
             // 
-            // elundiText
+            // wordView
             // 
-            this.elundiText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.elundiText.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.elundiText.Location = new System.Drawing.Point(0, 0);
-            this.elundiText.Name = "elundiText";
-            this.elundiText.Size = new System.Drawing.Size(607, 170);
-            this.elundiText.TabIndex = 0;
-            this.elundiText.Text = " Q-RRQ FQV Q-IBS FQV A-ZJ FQV E-MKYM Q-ABO-E S-I FQV Q-MLYM.";
-            // 
-            // analysedText
-            // 
-            this.analysedText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.analysedText.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.analysedText.Location = new System.Drawing.Point(0, 0);
-            this.analysedText.Name = "analysedText";
-            this.analysedText.ReadOnly = true;
-            this.analysedText.Size = new System.Drawing.Size(607, 189);
-            this.analysedText.TabIndex = 0;
-            this.analysedText.Text = "";
+            this.wordView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wordView.Location = new System.Drawing.Point(0, 0);
+            this.wordView.Name = "wordView";
+            this.wordView.Size = new System.Drawing.Size(607, 189);
+            this.wordView.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -144,7 +141,7 @@
         private System.Windows.Forms.RichTextBox elundiText;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ProgressBar AnalysProgress;
-        private System.Windows.Forms.RichTextBox analysedText;
+        private System.Windows.Forms.TreeView wordView;
     }
 }
 

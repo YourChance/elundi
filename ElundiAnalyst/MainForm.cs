@@ -20,18 +20,36 @@ namespace ElundiAnalyst
 
         private void StartAnalysisBtn_Click(object sender, EventArgs e)
         {
-            analysedText.Text = "";
+            wordView.Nodes.Clear();
             ETEnTranslator.ETEnCore core = new ETEnTranslator.ETEnCore();
             ArrayList wordList = core.Analyze(elundiText.Text);
             for (int i = 0; i < wordList.Count; i++)
             {
                 Predlozhenie curPred = (Predlozhenie)wordList[i];
+
+                TreeNode tn = null;
+                if(curPred.Count > 0)
+                    tn = wordView.Nodes.Add("Предложение " + (i + 1).ToString());
+                
                 for (int j = 0; j < curPred.Count; j++)
                 {
                     Slovo curSlovo = curPred[j];
+
+                    TreeNode slovoNode = tn.Nodes.Add(curSlovo.eSlovo);
+
+                    /**
+                     * Тут вы для своих частей речи добавляете свой вывод
+                     */
+
                     if (curSlovo.chastRechi == ChastRechi.Suschestvitelnoe)
                     {
-                        analysedText.AppendText(((Noun)curSlovo.ExtraData).ToString());
+                        Noun myNoun = (Noun)curSlovo.ExtraData;
+                        slovoNode.Nodes.Add("Часть речи: Существительное");
+                        slovoNode.Nodes.Add("Основа: " + myNoun.osnova.ToString());
+                        slovoNode.Nodes.Add("Перевод: " + myNoun.english.ToString());
+                        slovoNode.Nodes.Add("Род: " + myNoun.rod.ToString());
+                        slovoNode.Nodes.Add("Число: " + myNoun.chislo.ToString());
+                        slovoNode.Nodes.Add("Падеж: " + myNoun.padezh.ToString());
                     }
                 }
             }
