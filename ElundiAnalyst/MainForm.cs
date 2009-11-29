@@ -51,6 +51,14 @@ namespace ElundiAnalyst
                         slovoNode.Nodes.Add("Число: " + myNoun.chislo.ToString());
                         slovoNode.Nodes.Add("Падеж: " + myNoun.padezh.ToString());
                     }
+
+                    if (curSlovo.chastRechi == ChastRechi.Predlog)
+                    {
+                        Predlog myPredlog = (Predlog)curSlovo.ExtraData;
+                        slovoNode.Nodes.Add("Часть речи: Предлог");
+                        slovoNode.Nodes.Add("Перевод: " + myPredlog.english.ToString());
+                      
+                    }
                 }
             }
         }

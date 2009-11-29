@@ -62,6 +62,7 @@ namespace ETEnTranslator
 
         private void SetExtraData(ref Slovo slovo)
         {
+            
             Noun noun = new Noun();
             noun.chislo = slovo.chislo;
             noun.padezh = slovo.padezh;

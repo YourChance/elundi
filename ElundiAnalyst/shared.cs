@@ -24,6 +24,16 @@ namespace ETEnTranslator
         }
     }
 
+    public struct Predlog
+    {
+        public string english;
+        public override string ToString()
+        {
+            return
+            
+            "\r\nПеревод: " + this.english +"\r\n";
+        }
+    }
 	public enum ChastRechi
 	{
 		Neopredelennaya,

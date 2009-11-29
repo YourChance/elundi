@@ -22,7 +22,7 @@ namespace ETEnTranslator
              */
             AdjectiveModule = new ETEnEmpty(); //new ETEnAdjective();
             VerbModule = new ETEnEmpty(); //new GlagModule();
-            PredlogModule = new ETEnEmpty(); //new ETEnPredlog();
+            PredlogModule = new ETRPredlog();
             DefaultModule = new ETEnEmpty(); //new ETEnDefault();
             OtherModule = new ETEnEmpty(); //new ETEnOther();
 		}
