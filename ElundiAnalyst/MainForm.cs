@@ -59,6 +59,18 @@ namespace ElundiAnalyst
                         slovoNode.Nodes.Add("Перевод: " + myPredlog.english.ToString());
                       
                     }
+
+                    if (curSlovo.chastRechi == ChastRechi.Glagol)
+                    {
+                        Glagol myGlagol = (Glagol)curSlovo.ExtraData;
+                        slovoNode.Nodes.Add("Часть речи: Глагол");
+                        slovoNode.Nodes.Add("Перевод: " + myGlagol.english);
+                        slovoNode.Nodes.Add("Время: " + myGlagol.vremya.ToString());
+                        slovoNode.Nodes.Add("Залог: " + myGlagol.zalog.ToString());
+                        slovoNode.Nodes.Add("Наклонение: " + myGlagol.naklonenie.ToString());
+                        slovoNode.Nodes.Add("Вид: " + myGlagol.vid.ToString());
+                        slovoNode.Nodes.Add("Состояние: " + myGlagol.sostoyanie.ToString());
+                    }
                 }
             }
         }

@@ -21,7 +21,7 @@ namespace ETEnTranslator
              * когда сделаете
              */
             AdjectiveModule = new ETEnEmpty(); //new ETEnAdjective();
-            VerbModule = new ETEnEmpty(); //new GlagModule();
+            VerbModule = new ETEnGlagol();
             PredlogModule = new ETRPredlog();
             DefaultModule = new ETEnEmpty(); //new ETEnDefault();
             OtherModule = new ETEnEmpty(); //new ETEnOther();

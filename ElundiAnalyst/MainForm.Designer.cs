@@ -69,7 +69,7 @@
             this.elundiText.Name = "elundiText";
             this.elundiText.Size = new System.Drawing.Size(607, 170);
             this.elundiText.TabIndex = 0;
-            this.elundiText.Text = " Q-RRQ FQV Q-IBS FQV A-ZJ FQV E-MKYM Q-ABO-E S-I FQV Q-MLYM.";
+            this.elundiText.Text = " Q-RRQ FQV Q-IBS T- FQV A-ZJ FQV E-MKYM Q-ABO-E S-I FQV Q-MLYM U-FCW.";
             // 
             // panel1
             // 

@@ -24,6 +24,25 @@ namespace ETEnTranslator
         }
     }
 
+    public struct Glagol
+    {
+        public string english;
+        public Vremya vremya;
+        public Zalog zalog;
+        public Naklonenie naklonenie;
+        public Vid vid;
+        public Sostoynie sostoyanie;
+        public override string ToString()
+        {
+            return "\r\nПеревод: " + this.english +
+                   "\r\nВремя: " + this.vremya +
+                   "\r\nЗалог: " + this.zalog +
+                   "\r\nНаклонение: " + this.naklonenie +
+                   "\r\nВид: " + this.vid +
+                   "\r\nСостояние: " + this.sostoyanie;
+        }
+    }
+
     public struct Predlog
     {
         public string english;
@@ -34,7 +53,8 @@ namespace ETEnTranslator
             "\r\nПеревод: " + this.english +"\r\n";
         }
     }
-	public enum ChastRechi
+
+    public enum ChastRechi
 	{
 		Neopredelennaya,
 		Suschestvitelnoe,
