@@ -6,3 +6,11 @@ C:\Documents and Settings\Admin\elundi\ElundiAnalyst\bin\Debug\ElundiAnalyst.exe
 C:\Documents and Settings\Admin\elundi\ElundiAnalyst\bin\Debug\ElundiAnalyst.pdb
 C:\Documents and Settings\Admin\elundi\ElundiAnalyst\obj\Debug\ElundiAnalyst.exe
 C:\Documents and Settings\Admin\elundi\ElundiAnalyst\obj\Debug\ElundiAnalyst.pdb
+C:\Documents and Settings\Admin\elundi\elundi\ElundiAnalyst\obj\Debug\ElundiAnalyst.exe
+C:\Documents and Settings\Admin\elundi\elundi\ElundiAnalyst\obj\Debug\ElundiAnalyst.pdb
+C:\Documents and Settings\Admin\elundi\elundi\ElundiAnalyst\bin\Debug\ElundiAnalyst.exe
+C:\Documents and Settings\Admin\elundi\elundi\ElundiAnalyst\bin\Debug\ElundiAnalyst.pdb
+C:\Documents and Settings\Admin\elundi\elundi\ElundiAnalyst\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Admin\elundi\elundi\ElundiAnalyst\obj\Debug\ElundiAnalyst.MainForm.resources
+C:\Documents and Settings\Admin\elundi\elundi\ElundiAnalyst\obj\Debug\ElundiAnalyst.Properties.Resources.resources
+C:\Documents and Settings\Admin\elundi\elundi\ElundiAnalyst\obj\Debug\ElundiAnalyst.csproj.GenerateResource.Cache

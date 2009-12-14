@@ -52,6 +52,26 @@ namespace ElundiAnalyst
                         slovoNode.Nodes.Add("Падеж: " + myNoun.padezh.ToString());
                     }
 
+                    /*
+            Prilagatelnoe prilag= new Prilagatelnoe();
+            prilag.chislo = slovo.chislo;
+            prilag.padezh = slovo.padezh;
+            prilag.rod = slovo.rod;
+            prilag.osnova = slovo.eSlovo;
+            prilag.english = slovo.enSlovo.slovo;
+            slovo.ExtraData = prilag;  
+                     */
+                    if (curSlovo.chastRechi == ChastRechi.Prilagatelnoe)
+                    {
+                        Prilagatelnoe prilag = (Prilagatelnoe)curSlovo.ExtraData;
+                        slovoNode.Nodes.Add("Часть речи: Прилагательное");
+                        slovoNode.Nodes.Add("Основа: " + prilag.osnova.ToString());
+                        slovoNode.Nodes.Add("Перевод: " + prilag.english.ToString());
+                        slovoNode.Nodes.Add("Род: " + prilag.rod.ToString());
+                        slovoNode.Nodes.Add("Число: " + prilag.chislo.ToString());
+                        slovoNode.Nodes.Add("Падеж: " + prilag.padezh.ToString());
+                        slovoNode.Nodes.Add("Cтепень сравнения: " + prilag.stepenSravneniya.ToString());
+                    }
                     if (curSlovo.chastRechi == ChastRechi.Predlog)
                     {
                         Predlog myPredlog = (Predlog)curSlovo.ExtraData;
@@ -71,8 +91,15 @@ namespace ElundiAnalyst
                         slovoNode.Nodes.Add("Вид: " + myGlagol.vid.ToString());
                         slovoNode.Nodes.Add("Состояние: " + myGlagol.sostoyanie.ToString());
                     }
+         
+
                 }
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

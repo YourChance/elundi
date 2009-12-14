@@ -53,6 +53,7 @@ namespace ETEnTranslator
                 }
                 else
                 {
+                    
                     slovo.enSlovo.slovo = "[Нет перевода]";
                 }
             }

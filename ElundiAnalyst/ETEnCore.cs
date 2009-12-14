@@ -20,9 +20,9 @@ namespace ETEnTranslator
              * свои модули для анализа,
              * когда сделаете
              */
-            AdjectiveModule = new ETEnEmpty(); //new ETEnAdjective();
+            AdjectiveModule = new ETEnAdjective();
             VerbModule = new ETEnGlagol();
-            PredlogModule = new ETRPredlog();
+            PredlogModule = new ETEnPredlog();
             DefaultModule = new ETEnEmpty(); //new ETEnDefault();
             OtherModule = new ETEnEmpty(); //new ETEnOther();
 		}

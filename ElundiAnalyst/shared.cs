@@ -43,6 +43,25 @@ namespace ETEnTranslator
         }
     }
 
+    public struct Prilagatelnoe
+    {
+        public string osnova;
+        public string english;
+        public Rod rod;
+        public Padezh padezh;
+        public StepenSravneniya stepenSravneniya;
+        public Chislo chislo;      
+        public override string ToString()
+        {
+            return 
+                   "\r\nОснова: " + this.osnova +
+                   "\r\nПеревод: " + this.english +
+                   "\r\nРод: " + this.rod +
+                   "\r\nПадеж: " + this.padezh +
+                   "\r\nСтепень сравнения: " + this.stepenSravneniya +
+                   "\r\nЧисло: " + this.chislo + "\r\n";
+        }
+    }
     public struct Predlog
     {
         public string english;

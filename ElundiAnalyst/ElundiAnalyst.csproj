@@ -53,10 +53,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmptyModule.cs" />
+    <Compile Include="ETEnAdjective.cs" />
     <Compile Include="ETEnCore.cs" />
     <Compile Include="ETEnGlagol.cs" />
     <Compile Include="ETEnNoun.cs" />
-    <Compile Include="ETRPredlog.cs" />
+    <Compile Include="ETEnPredlog.cs" />
+    <Compile Include="ETEnTranslator.cs" />
     <Compile Include="Grafemat.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
