@@ -14,3 +14,11 @@ C:\Documents and Settings\Admin\elundi\elundi\ElundiAnalyst\obj\Debug\ResolveAss
 C:\Documents and Settings\Admin\elundi\elundi\ElundiAnalyst\obj\Debug\ElundiAnalyst.MainForm.resources
 C:\Documents and Settings\Admin\elundi\elundi\ElundiAnalyst\obj\Debug\ElundiAnalyst.Properties.Resources.resources
 C:\Documents and Settings\Admin\elundi\elundi\ElundiAnalyst\obj\Debug\ElundiAnalyst.csproj.GenerateResource.Cache
+D:\курс_09\elundi\ElundiAnalyst\obj\Debug\ElundiAnalyst.exe
+D:\курс_09\elundi\ElundiAnalyst\obj\Debug\ElundiAnalyst.pdb
+D:\курс_09\elundi\ElundiAnalyst\bin\Debug\ElundiAnalyst.exe
+D:\курс_09\elundi\ElundiAnalyst\bin\Debug\ElundiAnalyst.pdb
+D:\курс_09\elundi\ElundiAnalyst\obj\Debug\ResolveAssemblyReference.cache
+D:\курс_09\elundi\ElundiAnalyst\obj\Debug\ElundiAnalyst.MainForm.resources
+D:\курс_09\elundi\ElundiAnalyst\obj\Debug\ElundiAnalyst.Properties.Resources.resources
+D:\курс_09\elundi\ElundiAnalyst\obj\Debug\ElundiAnalyst.csproj.GenerateResource.Cache

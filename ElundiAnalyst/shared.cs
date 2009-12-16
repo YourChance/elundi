@@ -43,6 +43,26 @@ namespace ETEnTranslator
         }
     }
 
+    public struct Mestoimenie
+    {
+        public string english;
+        public override string ToString()
+        {
+            return 
+                "\r\nПеревод: " + this.english;
+        }
+    }
+
+    /*public struct Mestoimenie
+    {
+        public string english;
+        public override string ToString()
+        {
+            return 
+                "\r\nПеревод: " + this.english + "\r\n";
+        }
+    }*/
+
     public struct Prilagatelnoe
     {
         public string osnova;

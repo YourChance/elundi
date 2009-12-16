@@ -24,7 +24,7 @@ namespace ETEnTranslator
             VerbModule = new ETEnGlagol();
             PredlogModule = new ETEnPredlog();
             DefaultModule = new ETEnEmpty(); //new ETEnDefault();
-            OtherModule = new ETEnEmpty(); //new ETEnOther();
+            OtherModule = new ETEnOther();
 		}
 
         public ArrayList Analyze(string inText)
@@ -48,8 +48,11 @@ namespace ETEnTranslator
 					if(curSlovo.chastRechi != ChastRechi.Znak)
 					{
 						string eSlovo = curSlovo.eSlovo;
-						if(eSlovo.Length == 1)
-							curSlovo.chastRechi = ChastRechi.Mestoimenie;
+                        if (eSlovo.Length == 1 || eSlovo.Length == 2 && eSlovo[1] == '-')
+                        {
+                            curSlovo.chastRechi = ChastRechi.Mestoimenie;
+                            curSlovo = OtherModule.Analyze(curPred, j);
+                        }
 						else
 						switch(eSlovo[0])
 						{
@@ -67,7 +70,7 @@ namespace ETEnTranslator
 								curSlovo.chastRechi = ChastRechi.Prichastie;
 								break;
 							case 'A':
-								curSlovo.chastRechi = ChastRechi.Mestoimenie;
+                                curSlovo.chastRechi = ChastRechi.Mestoimenie;
 								break;
 							case 'R':
 							case 'T':
@@ -108,7 +111,7 @@ namespace ETEnTranslator
 				for(int j=0;j<curPred.Count;j++)
 				{
 					Slovo curSlovo = curPred[j];
-					if(curSlovo.chastRechi != ChastRechi.Znak)
+                    if (curSlovo.chastRechi != ChastRechi.Znak && curSlovo.chastRechi != ChastRechi.Mestoimenie)
 					{
 						string eSlovo = curSlovo.eSlovo;
 						if(eSlovo[0]=='R' || eSlovo[0]=='T' || eSlovo[0]=='Y' || eSlovo[0]=='U')

@@ -91,8 +91,13 @@ namespace ElundiAnalyst
                         slovoNode.Nodes.Add("Вид: " + myGlagol.vid.ToString());
                         slovoNode.Nodes.Add("Состояние: " + myGlagol.sostoyanie.ToString());
                     }
-         
 
+                    if (curSlovo.chastRechi == ChastRechi.Mestoimenie)
+                    {
+                        Mestoimenie myMest = (Mestoimenie)curSlovo.ExtraData;
+                        slovoNode.Nodes.Add("Часть речи: Местоимение");
+                        slovoNode.Nodes.Add("Перевод: " + myMest.english);
+                    }
                 }
             }
         }
