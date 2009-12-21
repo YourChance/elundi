@@ -365,6 +365,10 @@ namespace ETEnTranslator
 					return (Slovo)slova[n];
 				else return null;
 			}
+            set
+            {
+                slova[n] = value;
+            }
 		}
 		public void SetSlovo(Slovo s,int i)
 		{

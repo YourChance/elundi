@@ -155,5 +155,72 @@ namespace ETEnTranslator
 			}
             return prText;
 		}
-	}
+
+        public ArrayList GetMorphology(string inText)
+        {
+            Grafemat gr = new Grafemat();
+            ArrayList prText = gr.AnalyzeTextEl(inText);
+
+            for (int i = 0; i < prText.Count; i++)
+            {
+                Predlozhenie curPred = (Predlozhenie)prText[i];
+
+                //
+                //	Первый этап - анализ
+                //
+
+                //Нулевой проход - определение частей речи
+
+                for (int j = 0; j < curPred.Count; j++)
+                {
+                    Slovo curSlovo = curPred[j];
+                    if (curSlovo.chastRechi != ChastRechi.Znak)
+                    {
+                        string eSlovo = curSlovo.eSlovo;
+                        if (eSlovo.Length == 1 || eSlovo.Length == 2 && eSlovo[1] == '-')
+                        {
+                            curSlovo.chastRechi = ChastRechi.Mestoimenie;
+                            curSlovo = OtherModule.Analyze(curPred, j);
+                        }
+                        else
+                            switch (eSlovo[0])
+                            {
+                                case 'Q':
+                                case 'W':
+                                    curSlovo.chastRechi = ChastRechi.Suschestvitelnoe;
+                                    break;
+                                case 'F':
+                                    curSlovo.chastRechi = ChastRechi.Predlog;
+                                    break;
+                                case 'E':
+                                    curSlovo.chastRechi = ChastRechi.Prilagatelnoe;
+                                    break;
+                                case 'I':
+                                    curSlovo.chastRechi = ChastRechi.Prichastie;
+                                    break;
+                                case 'A':
+                                    curSlovo.chastRechi = ChastRechi.Mestoimenie;
+                                    break;
+                                case 'R':
+                                case 'T':
+                                case 'Y':
+                                case 'U':
+                                case 'O':
+                                    curSlovo.chastRechi = ChastRechi.Glagol;
+                                    break;
+                                //etc...
+                                default:
+                                    curSlovo.chastRechi = ChastRechi.Mezhdometie;
+                                    break;
+                            }
+                    }
+
+                    curPred.SetSlovo(curSlovo, j);
+                }
+
+                prText[i] = curPred;
+            }
+            return prText;
+        }
+    }
 }

@@ -35,6 +35,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.StartAnalysisBtn = new System.Windows.Forms.Button();
             this.wordView = new System.Windows.Forms.TreeView();
+            this.NormalizeBtn = new System.Windows.Forms.Button();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -64,7 +65,7 @@
             // elundiText
             // 
             this.elundiText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.elundiText.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.elundiText.Font = new System.Drawing.Font("ELUNDI1", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.elundiText.Location = new System.Drawing.Point(0, 0);
             this.elundiText.Name = "elundiText";
             this.elundiText.Size = new System.Drawing.Size(607, 170);
@@ -86,23 +87,24 @@
             this.AnalysProgress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AnalysProgress.Location = new System.Drawing.Point(0, 0);
             this.AnalysProgress.Name = "AnalysProgress";
-            this.AnalysProgress.Size = new System.Drawing.Size(453, 32);
+            this.AnalysProgress.Size = new System.Drawing.Size(395, 32);
             this.AnalysProgress.TabIndex = 1;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.NormalizeBtn);
             this.panel2.Controls.Add(this.StartAnalysisBtn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(453, 0);
+            this.panel2.Location = new System.Drawing.Point(395, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(154, 32);
+            this.panel2.Size = new System.Drawing.Size(212, 32);
             this.panel2.TabIndex = 2;
             // 
             // StartAnalysisBtn
             // 
-            this.StartAnalysisBtn.Location = new System.Drawing.Point(6, 0);
+            this.StartAnalysisBtn.Location = new System.Drawing.Point(116, 0);
             this.StartAnalysisBtn.Name = "StartAnalysisBtn";
-            this.StartAnalysisBtn.Size = new System.Drawing.Size(145, 32);
+            this.StartAnalysisBtn.Size = new System.Drawing.Size(93, 32);
             this.StartAnalysisBtn.TabIndex = 0;
             this.StartAnalysisBtn.Text = "Начать анализ";
             this.StartAnalysisBtn.UseVisualStyleBackColor = true;
@@ -111,10 +113,21 @@
             // wordView
             // 
             this.wordView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wordView.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.wordView.Location = new System.Drawing.Point(0, 0);
             this.wordView.Name = "wordView";
             this.wordView.Size = new System.Drawing.Size(607, 189);
             this.wordView.TabIndex = 0;
+            // 
+            // NormalizeBtn
+            // 
+            this.NormalizeBtn.Location = new System.Drawing.Point(6, 0);
+            this.NormalizeBtn.Name = "NormalizeBtn";
+            this.NormalizeBtn.Size = new System.Drawing.Size(104, 32);
+            this.NormalizeBtn.TabIndex = 1;
+            this.NormalizeBtn.Text = "Нормализовать";
+            this.NormalizeBtn.UseVisualStyleBackColor = true;
+            this.NormalizeBtn.Click += new System.EventHandler(this.NormalizeBtn_Click);
             // 
             // MainForm
             // 
@@ -143,6 +156,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ProgressBar AnalysProgress;
         private System.Windows.Forms.TreeView wordView;
+        private System.Windows.Forms.Button NormalizeBtn;
     }
 }
 
