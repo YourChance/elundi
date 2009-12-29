@@ -52,6 +52,10 @@ namespace ETEnTranslator
                     slovo.enSlovo.slovo = "[Нет перевода]";
                 }
             }
+            else
+            {
+                slovo.enSlovo.slovo = "[Нет перевода]";
+            }
             reader.Close();
             connection.Close();
         }
